@@ -2,16 +2,6 @@
 
 My personal blog built with Next.js. View it at [cambaughn.com](https://cambaughn.com).
 
-## Project Structure
-
-.
-├── src/
-│   ├── app/        # Next.js app router pages and components
-│   ├── content/    # Blog content
-│   │   ├── posts/      # Blog posts in markdown
-│   │   └── attachments/ # Images and other media
-│   └── lib/       # Utility functions
-
 ## Writing Posts
 1. Create a new markdown file in `src/content/posts/`
 2. Add frontmatter with title, description, and date
@@ -40,7 +30,7 @@ npm install
 npm run dev
 ```
 
-The site will be available at [cambaughn.com](https://cambaughn.com)
+The site will be available at [localhost:3000](http://localhost:3000)
 
 ## License
 Copyright (c) 2025 Cameron Baughn. All rights reserved.
