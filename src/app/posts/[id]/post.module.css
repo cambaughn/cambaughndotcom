@@ -1,0 +1,42 @@
+.post {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.postHeader {
+  margin-bottom: 3rem;
+}
+
+.postHeader time {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.postContent {
+  max-width: 100%;
+}
+
+.postContent p {
+  margin: 1.5rem 0;
+}
+
+.postContent code {
+  background: var(--light-gray);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.postContent pre code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 1em;
+}
+
+.postContent img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+} 

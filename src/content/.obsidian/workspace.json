@@ -1,0 +1,182 @@
+{
+  "main": {
+    "id": "575a77f62c9ad1a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f7de1ea627b4566",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b6a6feadce47875",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/dynamic-scaling.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "dynamic-scaling"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d17e2bb93ccc4d59",
+    "type": "split",
+    "children": [
+      {
+        "id": "a38705f1f2211a2d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e61fd2d40e252b6a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "2324757b0a73bfdd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "6fb10cafd415ca0c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6708ff1ee972bc8f",
+    "type": "split",
+    "children": [
+      {
+        "id": "359ad244bdac4050",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0a4b73d10ef576e5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "posts/React Native - Ignore dynamic scaling on iOS.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for React Native - Ignore dynamic scaling on iOS"
+            }
+          },
+          {
+            "id": "545eac6291d79b6e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "posts/React Native - Ignore dynamic scaling on iOS.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from React Native - Ignore dynamic scaling on iOS"
+            }
+          },
+          {
+            "id": "da9cc38e2bc87d53",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5c62aeccc9e69d5a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "posts/React Native - Ignore dynamic scaling on iOS.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of React Native - Ignore dynamic scaling on iOS"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1b6a6feadce47875",
+  "lastOpenFiles": [
+    "posts/firestore-promise.md",
+    "templates/post.md",
+    "posts/bash_profile.md",
+    "posts/node-environment-variables.md",
+    "posts/dynamic-scaling.md",
+    "templates",
+    "attachments/blank_terminal.png",
+    "attachments/bash_profile_in_terminal.png",
+    "attachments",
+    "assets/blank_terminal.png",
+    "assets/bash_profile_in_terminal.png",
+    "assets",
+    "posts/Testing.md",
+    "Testing.md"
+  ]
+}
