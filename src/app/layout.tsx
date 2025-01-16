@@ -39,9 +39,9 @@ export default function RootLayout({
         <main>{children}</main>
         <footer>
           <p>
-            © {new Date().getFullYear()} Cameron Baughn
+            © {new Date().getFullYear()} Cameron Baughn{' '}
             <span className="footer-links">
-              • <Link href="/inkling/legal">Terms</Link>
+              • <Link href="/inkling/legal">Terms & Conditions</Link>
             </span>
           </p>
         </footer>

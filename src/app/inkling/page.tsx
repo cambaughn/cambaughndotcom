@@ -6,11 +6,7 @@ export default function Inkling() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Inkling</h1>
-        <p>A better way to write.</p>
-        
-        <div className={styles.links}>
-          <Link href="/inkling/legal">Terms & Conditions</Link>
-        </div>
+        <p>Your AI assistant that helps you get to the point of any YouTube video.</p>
       </main>
     </div>
   );
