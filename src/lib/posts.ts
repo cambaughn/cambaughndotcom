@@ -42,9 +42,14 @@ export async function getPostData(id: string): Promise<Post> {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
+    const contentWithFixedImages = matterResult.content.replace(
+      /!\[\[(.*?)\]\]/g,
+      '![](/attachments/$1)'
+    );
+
     const processedContent = await remark()
       .use(html)
-      .process(matterResult.content);
+      .process(contentWithFixedImages);
     const contentHtml = processedContent.toString();
 
     return {

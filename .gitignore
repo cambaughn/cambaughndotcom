@@ -10,9 +10,10 @@ build/
 dist/
 
 # Content
-src/content/.obsidian/
+.obsidian/
 src/content/drafts/
 _archive/
+templates/
 
 # Environment variables
 .env
