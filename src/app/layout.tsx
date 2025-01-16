@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from 'next/link';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Cameron Baughn",
-  description: "Cameron Baughn's personal blog",
+  description: "Cameron Baughn's personal site",
   icons: {
     icon: [
       {
@@ -39,7 +40,9 @@ export default function RootLayout({
         <footer>
           <p>
             © {new Date().getFullYear()} Cameron Baughn
-            {/* We'll handle the conditional footer later */}
+            <span className="footer-links">
+              • <Link href="/inkling/legal">Terms</Link>
+            </span>
           </p>
         </footer>
       </body>

@@ -1,0 +1,57 @@
+.legalPage {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legalContent {
+  margin-top: 2rem;
+}
+
+.legalContent h1 {
+  margin-bottom: 2rem;
+}
+
+.legalContent h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.legalContent h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.legalContent p {
+  margin: 1rem 0;
+  color: var(--accent);
+}
+
+.legalContent ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.legalContent li {
+  color: var(--accent);
+  margin: 0.5rem 0;
+}
+
+.legalFooter {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.divider {
+  margin: 4rem 0 2rem;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.contactInfo {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-top: 4rem;
+} 
