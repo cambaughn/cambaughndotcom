@@ -8,11 +8,11 @@ export async function generateStaticParams() {
   }));
 }
 
-interface PageProps {
+export default async function Post({
+  params,
+}: {
   params: { id: string }
-}
-
-export default async function Post({ params }: PageProps) {
+}) {
   try {
     const post = await getPostData(params.id);
     
