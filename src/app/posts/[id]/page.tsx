@@ -1,4 +1,5 @@
 import { getPostData, getSortedPostsData } from '@/lib/posts';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -39,7 +40,7 @@ export default async function Post({
     return (
       <div className="error-page">
         <h1>Post Not Found</h1>
-        <p>The post you're looking for doesn't exist. <a href="/">Return home</a></p>
+        <p>The post you're looking for doesn't exist. <Link href="/">Return home</Link></p>
       </div>
     );
   }
