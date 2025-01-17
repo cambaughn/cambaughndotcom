@@ -42,7 +42,7 @@ export default async function Post({
 
       <div 
         className="post-content"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
+        dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }} 
       />
     </article>
   );
