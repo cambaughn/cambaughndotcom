@@ -16,8 +16,8 @@ My personal blog built with Next.js. View it at [cambaughn.com](https://cambaugh
 
 ### Setup
 1. Clone the repository
-```git clone https://github.com/cambaughn/cambaughn.com.git
-cd cambaughn.com
+```git clone https://github.com/cambaughn/cambaughndotcom.git
+cd cambaughndotcom
 ```
 
 2. Install dependencies

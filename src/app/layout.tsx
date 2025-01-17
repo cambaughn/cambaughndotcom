@@ -31,9 +31,9 @@ export default function RootLayout({
       <body className={inter.variable}>
         <header>
           <nav>
-            <a href="/" className="site-title">
+            <Link href="/" className="site-title">
               Cameron Baughn
-            </a>
+            </Link>
           </nav>
         </header>
         <main>{children}</main>

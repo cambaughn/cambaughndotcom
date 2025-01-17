@@ -30,7 +30,7 @@ main {
 }
 
 nav {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
@@ -124,7 +124,7 @@ footer {
 
 /* Homepage post preview styles */
 .posts {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .post-preview {
