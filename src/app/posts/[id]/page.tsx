@@ -1,12 +1,14 @@
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { Metadata } from 'next';
+import { use } from 'react';
 
 export async function generateMetadata({ 
   params 
 }: { 
-  params: { id: string } 
+  params: Promise<{ id: string }> 
 }): Promise<Metadata> {
-  const post = await getPostData(params.id);
+  const { id } = await params;
+  const post = await getPostData(id);
   return {
     title: post.title,
     description: post.description,
@@ -20,12 +22,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Post({
+export default function Post({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
-  const post = await getPostData(params.id);
+  const { id } = use(params);
+  const post = use(getPostData(id));
   
   return (
     <article className="post">
