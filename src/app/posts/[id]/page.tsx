@@ -1,5 +1,4 @@
 import { getPostData, getSortedPostsData } from '@/lib/posts';
-import Link from 'next/link';
 import { Metadata } from 'next';
 
 export async function generateMetadata({ 
