@@ -1,8 +1,9 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function ResultPage() {
+function ResultContent() {
   const searchParams = useSearchParams();
   const status = searchParams.get('status');
   const isSuccess = status === 'success';
@@ -28,5 +29,21 @@ export default function ResultPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense fallback={
+      <div className="container">
+        <div className="card">
+          <div className="content">
+            <h1>Loading...</h1>
+          </div>
+        </div>
+      </div>
+    }>
+      <ResultContent />
+    </Suspense>
   );
 }
