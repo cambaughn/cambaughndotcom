@@ -31,13 +31,14 @@ export default function CheckoutPage() {
         const { sessionId } = await response.json();
         const stripe = await stripePromise;
         
-        // Redirect to Stripe Checkout
-        const { error } = await stripe?.redirectToCheckout({
+        if (!stripe) return;
+
+        const result = await stripe.redirectToCheckout({
           sessionId,
         });
 
-        if (error) {
-          console.error('Stripe error:', error);
+        if (result.error) {
+          console.error('Stripe error:', result.error);
         }
       } catch (err) {
         console.error('Error:', err);

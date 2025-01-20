@@ -1,7 +1,6 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import styles from './result.module.css'; 
 
 export default function ResultPage() {
   const searchParams = useSearchParams();
