@@ -42,7 +42,9 @@ export async function GET(request: Request) {
     console.log('Found subscription:', subscription ? {
       id: subscription.id,
       status: subscription.status,
-      trialEnd: subscription.trial_end
+      trialEnd: subscription.trial_end,
+      cancelAtPeriodEnd: subscription?.cancel_at_period_end,
+      currentPeriodEnd: subscription?.current_period_end
     } : 'None');
 
     return NextResponse.json(
@@ -53,6 +55,7 @@ export async function GET(request: Request) {
         isTrialing: subscription?.status === 'trialing',
         subscriptionId: subscription?.id,
         currentPeriodEnd: subscription?.current_period_end,
+        cancelAtPeriodEnd: subscription?.cancel_at_period_end
       },
       { headers: corsHeaders() }
     );
@@ -63,4 +66,4 @@ export async function GET(request: Request) {
       { status: 500, headers: corsHeaders() }
     );
   }
-}
+} 

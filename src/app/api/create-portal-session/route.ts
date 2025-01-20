@@ -49,7 +49,7 @@ export async function POST(request: Request) {
       customer: typeof subscription.customer === 'string' 
         ? subscription.customer 
         : subscription.customer.id,
-      return_url: 'chrome-extension://ammjkhemekijlnmfbamlnmfdcobegiea/popup.html',
+      return_url: 'https://www.youtube.com'  // Return to YouTube homepage
     });
 
     return NextResponse.json(
