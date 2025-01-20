@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { loadStripe } from '@stripe/stripe-js';
 import styles from './checkout.module.css';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const userId = searchParams.get('userId');
   const email = searchParams.get('email');
@@ -49,11 +49,23 @@ export default function CheckoutPage() {
   }, [userId, email]);
 
   return (
+    <div className={styles.content}>
+      <h1>Redirecting to checkout...</h1>
+      <p>Please wait while we prepare your checkout session.</p>
+    </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
     <div className={styles.container}>
-      <div className={styles.content}>
-        <h1>Redirecting to checkout...</h1>
-        <p>Please wait while we prepare your checkout session.</p>
-      </div>
+      <Suspense fallback={
+        <div className={styles.content}>
+          <h1>Loading...</h1>
+        </div>
+      }>
+        <CheckoutContent />
+      </Suspense>
     </div>
   );
 }
