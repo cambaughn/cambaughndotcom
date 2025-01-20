@@ -163,3 +163,20 @@ footer {
   color: var(--link);
   text-decoration: none;
 }
+
+.support-text {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.support-link {
+  color: #6b7280;
+  text-underline-offset: 2px;
+}
+
+.support-link:hover {
+  color: #4b5563;
+  text-decoration: underline;
+}
