@@ -8,23 +8,38 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <div className="posts">
-          {posts.map(({ id, date, title, description }) => (
-            <article key={id} className="post-preview">
-              <h2>
-                <Link href={`/posts/${id}`}>{title}</Link>
-              </h2>
-              <time dateTime={new Date(date).toISOString()}>
-                {new Date(date).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </time>
-              {description && <p>{description}</p>}
-            </article>
-          ))}
-        </div>
+        <section className="about">
+          <h2>About</h2>
+          <p>
+            I'm currently figuring out my next thing. Previously, I founded{' '}
+            <a href="https://youtu.be/D1EggOVIm_s" target="_blank" rel="noopener noreferrer">Forge</a>, 
+            a language learning company and worked on local news as a software engineer at Sinclair Digital. 
+            You can connect with me on{' '}
+            <a href="https://x.com/cambaughn" target="_blank" rel="noopener noreferrer">Twitter</a> and 
+            read more of my writing below.
+          </p>
+        </section>
+
+        <section className="writing">
+          <h2>Writing</h2>
+          <div className="posts">
+            {posts.map(({ id, date, title, description }) => (
+              <article key={id} className="post-preview">
+                <h2>
+                  <Link href={`/posts/${id}`}>{title}</Link>
+                </h2>
+                <time dateTime={new Date(date).toISOString()}>
+                  {new Date(date).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </time>
+                {description && <p>{description}</p>}
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );

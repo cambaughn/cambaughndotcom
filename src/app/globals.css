@@ -116,7 +116,7 @@ a:hover {
 footer {
   flex-shrink: 0;
   margin-top: 4rem;
-  padding-top: 2rem;
+  padding: 1.5rem 0;
   border-top: 1px solid var(--border);
   color: var(--accent);
   font-size: 0.9rem;
@@ -135,13 +135,18 @@ footer {
   font-size: 0.9rem;
   color: var(--accent);
   display: block;
-  margin: 0.5rem 0;
+  margin: 0.15rem 0;
 }
 
 .post-preview p {
   color: var(--accent);
   font-size: 0.95rem;
   margin: 0.5rem 0;
+}
+
+.post-preview h2 {
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .post-preview h2 a {
@@ -179,4 +184,38 @@ footer {
 .support-link:hover {
   color: #4b5563;
   text-decoration: underline;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about {
+  margin-bottom: 1rem;
+}
+
+.about h2, .writing h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: var(--accent);
+  line-height: 1.6;
+}
+
+.about a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+
+.writing {
+  margin-bottom: 2rem;
 }

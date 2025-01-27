@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link';
+import SocialLinks from '@/components/SocialLinks';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,12 +39,15 @@ export default function RootLayout({
         </header>
         <main>{children}</main>
         <footer>
-          <p>
-            © {new Date().getFullYear()} Cameron Baughn{' '}
-            <span className="footer-links">
-              • <Link href="/inkling/legal">Terms & Conditions</Link>
-            </span>
-          </p>
+          <div className="footer-content">
+            <p>
+              © {new Date().getFullYear()} Cameron Baughn{' '}
+              <span className="footer-links">
+                • <Link href="/inkling/legal">Terms & Conditions</Link>
+              </span>
+            </p>
+            <SocialLinks />
+          </div>
         </footer>
       </body>
     </html>
