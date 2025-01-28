@@ -42,14 +42,29 @@ export async function getPostData(id: string): Promise<Post> {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
+    // Fix image links
     const contentWithFixedImages = matterResult.content.replace(
       /!\[\[(.*?)\]\]/g,
       '![](/attachments/$1)'
     );
 
+    // Fix wiki-style links
+    const contentWithFixedLinks = contentWithFixedImages.replace(
+      /\[\[(.*?)\|(.*?)\]\]|\[\[(.*?)\]\]/g,
+      (match, linkWithText, displayText, simpleLink) => {
+        if (simpleLink) {
+          // Handle simple case: [[page]]
+          return `[${simpleLink}](/posts/${simpleLink})`;
+        } else {
+          // Handle case with display text: [[page|Display Text]]
+          return `[${displayText}](/posts/${linkWithText})`;
+        }
+      }
+    );
+
     const processedContent = await remark()
       .use(html)
-      .process(contentWithFixedImages);
+      .process(contentWithFixedLinks);
     const contentHtml = processedContent.toString();
 
     return {
