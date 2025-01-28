@@ -112,6 +112,35 @@ a:hover {
   margin: 1.5rem auto;
 }
 
+.about {
+  margin-bottom: 0;
+}
+
+.about h2, .writing h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: var(--accent);
+  line-height: 1.6;
+}
+
+.about a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+
+.writing {
+  margin-bottom: 2rem;
+}
+
+
 /* Footer styles */
 footer {
   flex-shrink: 0;
@@ -128,7 +157,22 @@ footer {
 }
 
 .post-preview {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.post-preview:not(:last-child) {
+  padding-bottom: 1.5rem;
+}
+
+.post-preview:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  height: 1px;
+  background: var(--border);
 }
 
 .post-preview time {
@@ -192,30 +236,3 @@ footer {
   align-items: center;
 }
 
-.about {
-  margin-bottom: 1rem;
-}
-
-.about h2, .writing h2 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.about p {
-  color: var(--accent);
-  line-height: 1.6;
-}
-
-.about a {
-  color: var(--link);
-  text-decoration: none;
-}
-
-.about a:hover {
-  text-decoration: underline;
-}
-
-.writing {
-  margin-bottom: 2rem;
-}
