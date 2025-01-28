@@ -3,6 +3,8 @@ title: How SpaceX builds at rocket speeds
 description: Elon Musk has SpaceX building rockets at the rate a software company churns out code. It's insanely fast.
 date: 2022-05-17
 ---
+![falcon-9](falcon-9.jpeg)
+
 Elon Musk has SpaceX building rockets at the rate a software company churns out code. It's insanely fast.
 
 The key? Building with urgency. And **everybody** has to be on board. Here's how Elon makes that happen:
