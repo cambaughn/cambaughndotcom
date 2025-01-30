@@ -2,6 +2,9 @@
 title: Embrace the suck, learn anything
 description: If you want to become a proficient learner, you'll have to learn to love the suck.
 date: 2018-01-04
+tags:
+  - frameworks
+  - mental-models
 ---
 ![[jake-the-dog.gif]]
 
