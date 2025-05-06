@@ -64,9 +64,7 @@ export default function QuizzesPage() {
   if (loading) {
     return (
       <div className={styles.page}>
-        <main className={styles.main}>
-          <div className={styles.loading}>Loading quizzes...</div>
-        </main>
+        <div className={styles.loading}>Loading quizzes...</div>
       </div>
     );
   }
@@ -74,9 +72,7 @@ export default function QuizzesPage() {
   if (error) {
     return (
       <div className={styles.page}>
-        <main className={styles.main}>
-          <div className={styles.error}>Error: {error}</div>
-        </main>
+        <div className={styles.error}>Error: {error}</div>
       </div>
     );
   }
@@ -85,48 +81,66 @@ export default function QuizzesPage() {
     return null;
   }
 
+  // Filter units and sections to only show those with active quizzes
+  const activeUnits = appData.units
+    .map(unit => ({
+      ...unit,
+      sections: unit.sections
+        .map(section => ({
+          ...section,
+          lessons: section.lessons.filter(lesson => lesson.type === 'drill' && lesson.quiz)
+        }))
+        .filter(section => section.lessons.length > 0)
+    }))
+    .filter(unit => unit.sections.length > 0);
+
+  if (activeUnits.length === 0) {
+    return (
+      <div className={styles.page}>
+        <p className={styles.description}>
+          No active quizzes available at the moment.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <h1>Spanish Quizzes</h1>
-        <p className={styles.description}>
-          Practice your Spanish with these interactive quizzes. Each quiz is based on a lesson from the course.
-        </p>
+      <h1>Spanish Quizzes</h1>
+      <p className={styles.description}>
+        Test your Spanish knowledge with these interactive quizzes.
+      </p>
+      {activeUnits.map((unit) => (
+        <div key={unit.id} className={styles.unit}>
+          <h2>{unit.title}</h2>
+          <p>{unit.description}</p>
 
-        {appData.units.map((unit) => (
-          <div key={unit.id} className={styles.unit}>
-            <h2>{unit.title}</h2>
-            <p>{unit.description}</p>
+          {unit.sections.map((section) => (
+            <div key={section.id} className={styles.section}>
+              <h3>{section.title}</h3>
 
-            {unit.sections.map((section) => (
-              <div key={section.id} className={styles.section}>
-                <h3>{section.title}</h3>
-
-                <div className={styles.lessons}>
-                  {section.lessons
-                    .filter(lesson => lesson.type === 'drill')
-                    .map((lesson) => (
-                      <Link 
-                        key={lesson.id} 
-                        href={`/forge/quizzes/${lesson.id}`}
-                        className={styles.lesson}
-                      >
-                        <div className={styles.lessonContent}>
-                          <span className={styles.lessonIcon}>📝</span>
-                          <div className={styles.lessonInfo}>
-                            <h4>{lesson.title}</h4>
-                            <p>{lesson.quiz?.questions.length || 0} questions</p>
-                          </div>
-                        </div>
-                        <span className={styles.arrow}>→</span>
-                      </Link>
-                    ))}
-                </div>
+              <div className={styles.lessons}>
+                {section.lessons.map((lesson) => (
+                  <Link 
+                    key={lesson.id} 
+                    href={`/forge/quizzes/${lesson.id}`}
+                    className={styles.lesson}
+                  >
+                    <div className={styles.lessonContent}>
+                      <span className={styles.lessonIcon}>📝</span>
+                      <div className={styles.lessonInfo}>
+                        <h4>{lesson.title}</h4>
+                        <p>{lesson.quiz?.questions.length || 0} questions</p>
+                      </div>
+                    </div>
+                    <span className={styles.arrow}>→</span>
+                  </Link>
+                ))}
               </div>
-            ))}
-          </div>
-        ))}
-      </main>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 } 
