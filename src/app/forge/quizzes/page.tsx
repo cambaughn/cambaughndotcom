@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { getCompletedLessons } from './utils/storage';
 
 interface AppData {
   units: {
