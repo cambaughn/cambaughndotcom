@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { isLessonCompleted } from './utils/storage';
 
 interface AppData {
   units: {
@@ -40,6 +41,7 @@ export default function QuizzesPage() {
   const [appData, setAppData] = useState<AppData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +61,12 @@ export default function QuizzesPage() {
     };
 
     fetchData();
+  }, []);
+
+  // Update completed lessons when the component mounts
+  useEffect(() => {
+    const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
+    setCompletedLessons(completed);
   }, []);
 
   if (loading) {
@@ -124,10 +132,12 @@ export default function QuizzesPage() {
                   <Link 
                     key={lesson.id} 
                     href={`/forge/quizzes/${lesson.id}`}
-                    className={styles.lesson}
+                    className={`${styles.lesson} ${completedLessons.includes(lesson.id) ? styles.completed : ''}`}
                   >
                     <div className={styles.lessonContent}>
-                      <span className={styles.lessonIcon}>📝</span>
+                      <span className={styles.lessonIcon}>
+                        {completedLessons.includes(lesson.id) ? '✅' : '📝'}
+                      </span>
                       <div className={styles.lessonInfo}>
                         <h4>{lesson.title}</h4>
                         <p>{lesson.quiz?.questions.length || 0} questions</p>

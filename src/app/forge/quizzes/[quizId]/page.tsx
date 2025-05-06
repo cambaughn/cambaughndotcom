@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { markLessonAsCompleted } from '../utils/storage';
 
 interface Question {
   id: string;
@@ -54,6 +55,7 @@ export default function QuizPage() {
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -85,11 +87,21 @@ export default function QuizPage() {
 
       if (foundQuiz) {
         setQuiz(foundQuiz);
+        // Check if the quiz is already completed
+        const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
+        setIsCompleted(completed.includes(quizId));
       } else {
         setError('Quiz not found');
       }
     }
   }, [appData, quizId]);
+
+  // Mark the lesson as completed when all questions are answered
+  useEffect(() => {
+    if (quiz && currentQuestionIndex >= quiz.questions.length) {
+      markLessonAsCompleted(quiz.id);
+    }
+  }, [quiz, currentQuestionIndex]);
 
   if (loading) {
     return (
@@ -145,7 +157,7 @@ export default function QuizPage() {
                 setShowNextButton(false);
                 setCorrectAnswers(0);
               }}
-              className={styles.button}
+              className={`${styles.button} ${styles.secondary}`}
             >
               Try Again
             </button>
@@ -190,6 +202,12 @@ export default function QuizPage() {
         <Link href="/forge/quizzes" className={styles.backLink}>
           ← Back to Quizzes
         </Link>
+        {isCompleted && (
+          <div className={styles.completedBanner}>
+            <span className={styles.completedIcon}>✅</span>
+            Quiz Completed
+          </div>
+        )}
       </div>
 
       <div className={styles.quiz}>
@@ -201,7 +219,7 @@ export default function QuizPage() {
           <h3>{currentQuestion.text}</h3>
           
           <div className={styles.options}>
-            {currentQuestion.options.map((option) => (
+            {currentQuestion.options.map((option, index) => (
               <button
                 key={option}
                 onClick={() => handleAnswerSelect(option)}
@@ -210,29 +228,19 @@ export default function QuizPage() {
                     ? option === currentQuestion.correctAnswer
                       ? styles.correct
                       : styles.incorrect
-                    : ''
+                    : selectedAnswer !== null && option === currentQuestion.correctAnswer
+                      ? styles.correct
+                      : ''
                 }`}
                 disabled={selectedAnswer !== null}
               >
+                <span className={styles.optionLetter}>
+                  {String.fromCharCode(65 + index)}
+                </span>
                 {option}
               </button>
             ))}
           </div>
-
-          {selectedAnswer && (
-            <div className={styles.feedback}>
-              {isCorrect ? (
-                <p className={styles.correct}>¡Correcto! ✨</p>
-              ) : (
-                <div className={styles.incorrect}>
-                  <p>Not quite. The correct answer is: {currentQuestion.correctAnswer}</p>
-                  {currentQuestion.explanation && (
-                    <p className={styles.explanation}>{currentQuestion.explanation}</p>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
 
           {showNextButton && (
             <button
