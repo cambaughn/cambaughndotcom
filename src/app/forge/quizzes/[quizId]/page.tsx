@@ -52,7 +52,6 @@ export default function QuizPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -181,7 +180,6 @@ export default function QuizPage() {
     
     setSelectedAnswer(answer);
     const correct = answer === currentQuestion.correctAnswer;
-    setIsCorrect(correct);
     if (correct) {
       setCorrectAnswers(prev => prev + 1);
     }
