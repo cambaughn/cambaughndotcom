@@ -120,7 +120,6 @@ export default function QuizzesPage() {
       {activeUnits.map((unit) => (
         <div key={unit.id} className={styles.unit}>
           <h2>{unit.title}</h2>
-          <p>{unit.description}</p>
 
           {unit.sections.map((section) => (
             <div key={section.id} className={styles.section}>
