@@ -30,6 +30,15 @@
   text-decoration: underline;
 }
 
+.quizTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
 .quiz {
   margin-top: 2rem;
 }
@@ -216,13 +225,4 @@
 
 .completedIcon {
   font-size: 1.1rem;
-}
-
-.quizNumber {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--accent);
 } 

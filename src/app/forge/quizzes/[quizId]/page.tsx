@@ -208,9 +208,9 @@ export default function QuizPage() {
           <Link href="/forge/quizzes" className={styles.backLink}>
             ← Back to Quizzes
           </Link>
-          {quizNumber && (
-            <div className={styles.quizNumber}>
-              Quiz {quizNumber}
+          {quiz && (
+            <div className={styles.quizTitle}>
+              {quiz.title}
             </div>
           )}
         </div>
