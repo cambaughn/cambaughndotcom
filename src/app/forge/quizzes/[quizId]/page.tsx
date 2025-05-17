@@ -55,7 +55,6 @@ export default function QuizPage() {
   const [showNextButton, setShowNextButton] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [quizNumber, setQuizNumber] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,14 +79,11 @@ export default function QuizPage() {
   useEffect(() => {
     if (appData && quizId) {
       // Find the quiz in the app data
-      let quizCount = 0;
       for (const unit of appData.units) {
         for (const section of unit.sections) {
           for (const lesson of section.lessons) {
             if (lesson.type === 'drill' && lesson.quiz) {
-              quizCount++;
               if (lesson.id === quizId) {
-                setQuizNumber(quizCount);
                 setQuiz(lesson.quiz);
                 // Check if the quiz is already completed
                 const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
