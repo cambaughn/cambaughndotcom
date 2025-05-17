@@ -9,6 +9,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .backLink {
@@ -30,6 +37,8 @@
 .progress {
   text-align: center;
   color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
   margin-bottom: 2rem;
 }
 
@@ -207,4 +216,13 @@
 
 .completedIcon {
   font-size: 1.1rem;
+}
+
+.quizNumber {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
 } 

@@ -55,6 +55,7 @@ export default function QuizPage() {
   const [showNextButton, setShowNextButton] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [quizNumber, setQuizNumber] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,19 +80,25 @@ export default function QuizPage() {
   useEffect(() => {
     if (appData && quizId) {
       // Find the quiz in the app data
-      const foundQuiz = appData.units
-        .flatMap(unit => unit.sections)
-        .flatMap(section => section.lessons)
-        .find(lesson => lesson.id === quizId && lesson.type === 'drill')?.quiz;
-
-      if (foundQuiz) {
-        setQuiz(foundQuiz);
-        // Check if the quiz is already completed
-        const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
-        setIsCompleted(completed.includes(quizId));
-      } else {
-        setError('Quiz not found');
+      let quizCount = 0;
+      for (const unit of appData.units) {
+        for (const section of unit.sections) {
+          for (const lesson of section.lessons) {
+            if (lesson.type === 'drill' && lesson.quiz) {
+              quizCount++;
+              if (lesson.id === quizId) {
+                setQuizNumber(quizCount);
+                setQuiz(lesson.quiz);
+                // Check if the quiz is already completed
+                const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
+                setIsCompleted(completed.includes(quizId));
+                return;
+              }
+            }
+          }
+        }
       }
+      setError('Quiz not found');
     }
   }, [appData, quizId]);
 
@@ -197,9 +204,16 @@ export default function QuizPage() {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <Link href="/forge/quizzes" className={styles.backLink}>
-          ← Back to Quizzes
-        </Link>
+        <div className={styles.headerLeft}>
+          <Link href="/forge/quizzes" className={styles.backLink}>
+            ← Back to Quizzes
+          </Link>
+          {quizNumber && (
+            <div className={styles.quizNumber}>
+              Quiz {quizNumber}
+            </div>
+          )}
+        </div>
         {isCompleted && (
           <div className={styles.completedBanner}>
             <span className={styles.completedIcon}>✅</span>
