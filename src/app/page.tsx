@@ -11,7 +11,7 @@ export default function Home() {
         <section className="about">
           <h2>About</h2>
           <p>
-            I'm currently working on Air and Ground Deterrence at Anduril. Previously, I founded{' '}
+            I'm currently figuring out my next thing. Previously, I worked on Air and Ground Deterrence at Anduril. I also founded{' '}
             <a href="https://youtu.be/D1EggOVIm_s" target="_blank" rel="noopener noreferrer">Forge</a>, 
             a language learning company and worked on local news as a software engineer at Sinclair Digital. 
             You can connect with me on{' '}
