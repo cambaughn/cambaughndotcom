@@ -13,7 +13,7 @@ export default function Home() {
           <p>
             I'm currently figuring out my next thing. Previously, I worked on Air and Ground Deterrence at Anduril. I also founded{' '}
             <a href="https://youtu.be/D1EggOVIm_s" target="_blank" rel="noopener noreferrer">Forge</a>, 
-            a language learning company and worked on local news as a software engineer at Sinclair Digital. 
+            a language learning company, and worked on local news as a software engineer at Sinclair Digital. 
             You can connect with me on{' '}
             <a href="https://x.com/cambaughn" target="_blank" rel="noopener noreferrer">Twitter</a> and 
             read more of my writing below.
