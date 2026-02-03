@@ -34,6 +34,12 @@
   gap: 32px;
 }
 
+/* Link style used by components (match Forge styles) */
+.link {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .main ol {
   font-family: var(--font-geist-mono);
   padding-left: 0;

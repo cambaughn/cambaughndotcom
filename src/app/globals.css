@@ -51,8 +51,8 @@ h2 {
 }
 
 a {
-  color: var(--link);
-  text-decoration: none;
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 a:hover {
@@ -131,12 +131,12 @@ a:hover {
 }
 
 .about a {
-  color: var(--link);
-  text-decoration: none;
+  /* let global link styles apply */
+  color: inherit;
 }
 
 .about a:hover {
-  text-decoration: underline;
+  /* no override here so `.link` can control decoration */
 }
 
 .writing {
@@ -197,18 +197,19 @@ footer {
 }
 
 .post-preview h2 a {
-  color: var(--text);
+  /* allow link classes to control color/decoration */
+  color: inherit;
 }
 
 .post-preview h2 a:hover {
-  color: var(--link);
-  text-decoration: none;
+  /* no override here so `.link` can control decoration */
 }
 
 .site-title {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--text);
+  text-decoration: none;
 }
 
 .site-title:hover {
