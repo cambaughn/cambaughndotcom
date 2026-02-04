@@ -32,6 +32,16 @@ main {
   width: 100%;
 }
 
+/* Shared content container used by pages to unify spacing */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content p {
+  color: var(--accent);
+}
+
 nav {
   margin-bottom: 1rem;
   padding-bottom: 1rem;

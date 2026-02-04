@@ -6,9 +6,9 @@ export default function Home() {
   const posts = getSortedPostsData();
   
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} content`}>
       <main className={styles.main}>
-        <section className="about">
+        <section>
           <h2>About</h2>
           <p>
             I'm currently figuring out my next thing. Previously, I worked on Air and Ground Deterrence at Anduril. I also founded <Link href="/forge" className={styles.link}>Forge</Link>,  
@@ -17,7 +17,7 @@ export default function Home() {
           <p>You can connect with me on <a href="https://x.com/cambaughn" target="_blank" rel="noopener noreferrer" className={styles.link}>Twitter</a> and read more of my writing below.</p>
         </section>
 
-        <section className="writing">
+        <section>
           <h2>Writing</h2>
           <div className="posts">
             {posts.map(({ id, date, title, description }) => (

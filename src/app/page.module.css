@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  padding: 2rem;
+  padding: 0;
   gap: 2rem;
   font-family: var(--font-geist-sans);
 }
@@ -34,11 +34,6 @@
   gap: 32px;
 }
 
-/* Link style used by components (match Forge styles) */
-.link {
-  color: var(--accent);
-  text-decoration: underline;
-}
 
 .main ol {
   font-family: var(--font-geist-mono);
