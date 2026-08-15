@@ -29,3 +29,6 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Next.js generates this per-command (dev vs build write different paths)
+next-env.d.ts
