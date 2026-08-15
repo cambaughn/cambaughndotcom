@@ -1,14 +1,18 @@
 import { getPostData, getSortedPostsData } from '@/lib/posts';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { use } from 'react';
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ id: string }> 
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ id: string }>
 }): Promise<Metadata> {
   const { id } = await params;
   const post = await getPostData(id);
+  if (!post) {
+    return { title: 'Page Not Found' };
+  }
   return {
     title: post.title,
     description: post.description,
@@ -29,7 +33,11 @@ export default function Post({
 }) {
   const { id } = use(params);
   const post = use(getPostData(id));
-  
+
+  if (!post) {
+    notFound();
+  }
+
   return (
     <article className="post">
       <header className="post-header">

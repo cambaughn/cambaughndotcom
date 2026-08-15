@@ -1,10 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { markLessonAsCompleted } from '../utils/storage';
+import {
+  getCompletedLessons,
+  getCompletedLessonsOnServer,
+  markLessonAsCompleted,
+  subscribeToCompletedLessons,
+} from '../utils/storage';
 
 interface Question {
   id: string;
@@ -47,14 +52,19 @@ export default function QuizPage() {
   const router = useRouter();
   const quizId = params.quizId as string;
   const [appData, setAppData] = useState<AppData | null>(null);
-  const [quiz, setQuiz] = useState<Quiz | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [isCompleted, setIsCompleted] = useState(false);
+
+  const completedLessons = useSyncExternalStore(
+    subscribeToCompletedLessons,
+    getCompletedLessons,
+    getCompletedLessonsOnServer
+  );
+  const isCompleted = completedLessons.includes(quizId);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,26 +86,20 @@ export default function QuizPage() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (appData && quizId) {
-      // Find the quiz in the app data
-      for (const unit of appData.units) {
-        for (const section of unit.sections) {
-          for (const lesson of section.lessons) {
-            if (lesson.type === 'drill' && lesson.quiz) {
-              if (lesson.id === quizId) {
-                setQuiz(lesson.quiz);
-                // Check if the quiz is already completed
-                const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
-                setIsCompleted(completed.includes(quizId));
-                return;
-              }
-            }
+  // Derived from the fetched data, so it's computed during render rather than
+  // stored in state and synced by an effect.
+  const quiz = useMemo((): Quiz | null => {
+    if (!appData) return null;
+    for (const unit of appData.units) {
+      for (const section of unit.sections) {
+        for (const lesson of section.lessons) {
+          if (lesson.type === 'drill' && lesson.quiz && lesson.id === quizId) {
+            return lesson.quiz;
           }
         }
       }
-      setError('Quiz not found');
     }
+    return null;
   }, [appData, quizId]);
 
   // Mark the lesson as completed when all questions are answered

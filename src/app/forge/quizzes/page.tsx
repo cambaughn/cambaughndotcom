@@ -1,8 +1,13 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
+import {
+  getCompletedLessons,
+  getCompletedLessonsOnServer,
+  subscribeToCompletedLessons,
+} from './utils/storage';
 
 interface AppData {
   units: {
@@ -40,7 +45,11 @@ export default function QuizzesPage() {
   const [appData, setAppData] = useState<AppData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const completedLessons = useSyncExternalStore(
+    subscribeToCompletedLessons,
+    getCompletedLessons,
+    getCompletedLessonsOnServer
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,12 +69,6 @@ export default function QuizzesPage() {
     };
 
     fetchData();
-  }, []);
-
-  // Update completed lessons when the component mounts
-  useEffect(() => {
-    const completed = JSON.parse(localStorage.getItem('completed_lessons') || '[]');
-    setCompletedLessons(completed);
   }, []);
 
   if (loading) {

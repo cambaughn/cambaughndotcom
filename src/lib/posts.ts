@@ -36,46 +36,48 @@ export function getSortedPostsData() {
   });
 }
 
-export async function getPostData(id: string): Promise<Post> {
-  try {
-    const fullPath = path.join(postsDirectory, `${id}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const matterResult = matter(fileContents);
-
-    // Fix image links
-    const contentWithFixedImages = matterResult.content.replace(
-      /!\[\[(.*?)\]\]/g,
-      '![](/attachments/$1)'
-    );
-
-    // Fix wiki-style links
-    const contentWithFixedLinks = contentWithFixedImages.replace(
-      /\[\[(.*?)\|(.*?)\]\]|\[\[(.*?)\]\]/g,
-      (match, linkWithText, displayText, simpleLink) => {
-        if (simpleLink) {
-          // Handle simple case: [[page]]
-          return `[${simpleLink}](/posts/${simpleLink})`;
-        } else {
-          // Handle case with display text: [[page|Display Text]]
-          return `[${displayText}](/posts/${linkWithText})`;
-        }
-      }
-    );
-
-    const processedContent = await remark()
-      .use(html)
-      .process(contentWithFixedLinks);
-    const contentHtml = processedContent.toString();
-
-    return {
-      id,
-      title: matterResult.data.title,
-      date: matterResult.data.date,
-      description: matterResult.data.description,
-      contentHtml,
-    };
-  } catch (error) {
-    console.error(`Error loading post ${id}:`, error);
-    throw error;
+// Returns null when no such post exists, so the route can render a 404
+// instead of throwing.
+export async function getPostData(id: string): Promise<Post | null> {
+  // `id` comes from the URL, so keep it from escaping the posts directory.
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  if (path.dirname(fullPath) !== postsDirectory || !fs.existsSync(fullPath)) {
+    return null;
   }
+
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const matterResult = matter(fileContents);
+
+  // Fix image links
+  const contentWithFixedImages = matterResult.content.replace(
+    /!\[\[(.*?)\]\]/g,
+    '![](/attachments/$1)'
+  );
+
+  // Fix wiki-style links
+  const contentWithFixedLinks = contentWithFixedImages.replace(
+    /\[\[(.*?)\|(.*?)\]\]|\[\[(.*?)\]\]/g,
+    (match, linkWithText, displayText, simpleLink) => {
+      if (simpleLink) {
+        // Handle simple case: [[page]]
+        return `[${simpleLink}](/posts/${simpleLink})`;
+      } else {
+        // Handle case with display text: [[page|Display Text]]
+        return `[${displayText}](/posts/${linkWithText})`;
+      }
+    }
+  );
+
+  const processedContent = await remark()
+    .use(html)
+    .process(contentWithFixedLinks);
+  const contentHtml = processedContent.toString();
+
+  return {
+    id,
+    title: matterResult.data.title,
+    date: matterResult.data.date,
+    description: matterResult.data.description,
+    contentHtml,
+  };
 } 
