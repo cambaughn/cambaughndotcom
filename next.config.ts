@@ -1,13 +1,7 @@
-import path from 'path';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  // Without this, Turbopack walks up past the repo and picks up a stray
-  // package-lock.json in the home directory.
-  turbopack: {
-    root: path.resolve(__dirname),
-  },
+  // No `output: 'standalone'` here on purpose: that's for self-hosting, and it
+  // breaks Vercel's own packaging step (onBuildComplete) on Next 16.
   images: {
     remotePatterns: [
       {
