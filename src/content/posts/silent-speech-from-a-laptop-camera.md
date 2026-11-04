@@ -1,6 +1,6 @@
 ---
 title: Silent speech from a laptop camera
-description: Seven minutes of me mouthing sentences in silence taught a lip-reading model to read me. It also showed exactly where a camera stops being enough.
+description: People are building all sorts of sensors to read subvocal speech. I wanted to see what was possible with just my laptop camera.
 date: 2026-11-04
 ---
 I wanted to know whether the webcam on my MacBook could read sentences I mouth without making a
