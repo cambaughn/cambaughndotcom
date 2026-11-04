@@ -1,0 +1,92 @@
+{
+  "automobiles": {
+    "id": "automobiles",
+    "title": "Automobiles",
+    "text": "In Spanish, there are several ways to say **car**, mainly differing by country/region:\n\n**carro**\n\n**auto**\n\n**coche**\n\nAll are correct and understood. We'll generally use **carro** in the app, but be aware that folks you interact with may use a different word.\n"
+  },
+  "decir": {
+    "id": "decir",
+    "title": "Decir",
+    "text": "|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **decir**  | to say |\n| **(yo) digo** | I say |\n| **(tú) dices** | you say |\n| **(él/ella) dice** | he/she says | \n| **(nosotros) decimos** | we say |\n| **(ellos) dicen** | they say |"
+  },
+  "directional-a": {
+    "id": "directional-a",
+    "title": "Directional \"a\"",
+    "text": "In Spanish, the particle \"a\" is used to show a direction or destination. It can be used for physically traveling to some place or for performing an action targeted at or for someone."
+  },
+  "el-y-la": {
+    "id": "el-y-la",
+    "title": "El y la",
+    "text": "**El** and **la** both translate to \"the\" in English. However, **el** is used with masculine nouns, while **la** is used with feminine nouns."
+  },
+  "grande-vs-gran": {
+    "id": "grande-vs-gran",
+    "title": "Grande vs. gran",
+    "text": "**Grande** appears after a noun and means *big* or *large*. When it comes in front of a noun, it changes to **gran** and means *great*.\n\n**Un hombre grande** - *a big man*\n\n**Un gran hombre** - *a great man*\n\n**Una gran mujer** - *a great woman*\n\n**Grandes mujeres** - *great women*"
+  },
+  "hacer": {
+    "id": "hacer",
+    "title": "Hacer",
+    "text": "|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **hacer**  | to do |\n| **(yo) hago** | I do |\n| **(tú) haces** | you do |\n| **(él/ella) hace** | he/she does | \n| **(nosotros) hacemos** | we do |\n| **(ellos) hacen** | they do |\n\n*Note: hacer also means \"to make\"*"
+  },
+  "ir": {
+    "id": "ir",
+    "title": "Ir",
+    "text": "|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **ir**  | to go |\n| **(yo) voy** | I go |\n| **(tú) vas** | you go |\n| **(él/ella) va** | he/she goes | \n| **(nosotros) vamos** | we go |\n| **(ellos) van** | they go |"
+  },
+  "nada": {
+    "id": "nada",
+    "title": "Nada",
+    "text": "**Nada** means *nothing*, but is also translated as *anything* when used with a negative.\n\nFor example, **\"No leo nada\"** could be translated as either *\"I read nothing\"* or *\"I don't read anything.\"* "
+  },
+  "nosotras-y-ellas": {
+    "id": "nosotras-y-ellas",
+    "title": "Nosotras y ellas",
+    "text": "**Nosotras** and **ellas** are translated into English the same as **nosotros** and **ellos**, respectively (meaning \"us\" and \"them\"). However, remember that they are only used in Spanish when the entire group of people is female. If there's even one male in the group you're referring to, or your not sure of who is in the group, stick with **nosotros** and **ellos**."
+  },
+  "numbers-0-10": {
+    "id": "numbers-0-10",
+    "title": "Numbers: 0-10",
+    "text": "| *Spanish* | *English* |\n| -------- | ----- |\n| **cero** | zero |\n| **uno** | one |\n| **dos** | two |\n| **tres** | three |\n| **cuatro** | four |\n| **cinco** | five |\n| **seis** | six |\n| **siete** | seven |\n| **ocho** | eight |\n| **nueve** | nine |\n| **diez** | ten |"
+  },
+  "numbers-11-20": {
+    "id": "numbers-11-20",
+    "title": "Numbers: 11-20",
+    "text": "| *Spanish* | *English* |\n| -------- | ----- |\n| **once** | eleven |\n| **doce** | twelve |\n| **trece** | thirteen |\n| **catorce** | fourteen |\n| **quince** | fifteen |\n| **dieciseis** | sixteen |\n| **diecisiete** | seventeen |\n| **dieciocho** | eighteen |\n| **diecinueve** | nineteen |\n| **veinte** | twenty |"
+  },
+  "querer": {
+    "id": "querer",
+    "title": "Querer",
+    "text": "|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **querer**  | to want |\n| **(yo) quiero** | I want |\n| **(tú) quieres** | you want |\n| **(él/ella) quiere** | he/she wants | \n| **(nosotros) queremos** | we want |\n| **(ellos) quieren** | they want |"
+  },
+  "question-words": {
+    "id": "question-words",
+    "title": "Question words",
+    "text": "**Qué** - what\n\n**Quién** - who\n\n**Cuándo** - when\n\n**Dónde** - where\n\n**Cuál** - which\n\n**Por qué** - why\n\n**Cómo** - how\n\n"
+  },
+  "saber": {
+    "id": "saber",
+    "title": "Saber",
+    "text": "|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **saber**  | to know |\n| **(yo) sé** | I know |\n| **(tú) sabes** | you know |\n| **(él/ella) sabe** | he/she knows | \n| **(nosotros) sabemos** | we know |\n| **(ellos) saben** | they know |"
+  },
+  "sp-un-una": {
+    "id": "sp-un-una",
+    "title": "Un y una",
+    "text": "\"Un\" and \"una\" are articles in Spanish, like \"a\" and \"an\" in English. They correspond to grammatical gender, so \"a student\" is \"un estudiante\" and \"a school\" is \"una escuela.\""
+  },
+  "tener-to-have": {
+    "id": "tener-to-have",
+    "title": "Tener (to have)",
+    "text": "Tener is an irregular verb, so it doesn't follow the regular rules for \"-er\" verbs.\n\n|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **tener**  | to have |\n| **(yo) tengo** | I have |\n| **(tú) tienes** | you have |\n| **(él/ella) tiene** | he/she has | \n| **(nosotros) tenemos** | we have |\n| **(ellos) tienen** | they have |\n| **(ustedes) tienen** | you (all) have |"
+  },
+  "unos-y-unas": {
+    "id": "unos-y-unas",
+    "title": "Unos y unas",
+    "text": "One of the ways to say \"some\" in Spanish is by using \"unos\" (with masculine nouns) and \"unas\" (with feminine nouns). For example: **unos perros** *(some dogs)* and **unas casas** *(some houses)*."
+  },
+  "venir": {
+    "id": "venir",
+    "title": "Venir",
+    "text": "|  **Spanish**  |  **English**  | \n| --------- | -------- |\n| **venir**  | to come |\n| **(yo) vengo** | I come |\n| **(tú) vienes** | you come |\n| **(él/ella) viene** | he/she comes | \n| **(nosotros) venimos** | we come |\n| **(ellos) vienen** | they come |"
+  }
+}
