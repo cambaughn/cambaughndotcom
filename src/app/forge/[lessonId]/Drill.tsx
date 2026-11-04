@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 import { markComplete } from '@/lib/forge/progress';
 import { buildDrillQuestions, isAnswerCorrect, type Question } from '@/lib/forge/questions';
@@ -8,7 +8,14 @@ import type { DrillLesson, Tip } from '@/lib/forge/types';
 import { useIsClient } from '@/lib/useIsClient';
 import styles from './drill.module.css';
 
-export default function Drill({ lesson }: { lesson: DrillLesson }) {
+export default function Drill({
+  lesson,
+  footer,
+}: {
+  lesson: DrillLesson;
+  /** The lesson's own controls, shown once the drill is finished. */
+  footer?: ReactNode;
+}) {
   // "Try again" reshuffles by remounting the run, so none of its state needs
   // resetting by hand.
   const [attempt, setAttempt] = useState(0);
@@ -26,12 +33,21 @@ export default function Drill({ lesson }: { lesson: DrillLesson }) {
     <DrillRun
       key={attempt}
       lesson={lesson}
+      footer={footer}
       onRetry={() => setAttempt((current) => current + 1)}
     />
   );
 }
 
-function DrillRun({ lesson, onRetry }: { lesson: DrillLesson; onRetry: () => void }) {
+function DrillRun({
+  lesson,
+  footer,
+  onRetry,
+}: {
+  lesson: DrillLesson;
+  footer?: ReactNode;
+  onRetry: () => void;
+}) {
   const [base] = useState(() => buildDrillQuestions(lesson.sentences));
 
   // Missed questions, appended so the drill ends once everything has been
@@ -44,7 +60,6 @@ function DrillRun({ lesson, onRetry }: { lesson: DrillLesson; onRetry: () => voi
   const [score, setScore] = useState({ right: 0, asked: 0 });
   const [tipsOpenFor, setTipsOpenFor] = useState<string | null>(null);
 
-  const audio = useRef<HTMLAudioElement | null>(null);
   const input = useRef<HTMLInputElement | null>(null);
 
   const queue = [...base, ...retries];
@@ -71,6 +86,7 @@ function DrillRun({ lesson, onRetry }: { lesson: DrillLesson; onRetry: () => voi
         <button type="button" className={styles.secondaryButton} onClick={onRetry}>
           Try again
         </button>
+        {footer}
       </div>
     );
   }
@@ -78,16 +94,6 @@ function DrillRun({ lesson, onRetry }: { lesson: DrillLesson; onRetry: () => voi
   const answered = verdict !== null;
   const tips = lesson.tips.filter((tip) => question.tips.includes(tip.id));
   const showTips = tipsOpenFor === question.key;
-
-  const playAudio = (): void => {
-    const player = audio.current;
-    if (!player) return;
-    player.currentTime = 0;
-    void player.play().catch(() => {
-      // Autoplay rules and missing files both land here, and the question
-      // works without the audio, so there's nothing to tell the visitor.
-    });
-  };
 
   const settle = (correct: boolean): void => {
     setVerdict(correct ? 'correct' : 'incorrect');
@@ -136,18 +142,8 @@ function DrillRun({ lesson, onRetry }: { lesson: DrillLesson; onRetry: () => voi
         </p>
         <p className={styles.prompt}>
           {question.prompt}
-          {question.audioUrl && (
-            <button
-              type="button"
-              className={styles.audioButton}
-              onClick={playAudio}
-              aria-label="Play the Spanish audio"
-            >
-              ▶
-            </button>
-          )}
+          {question.audioUrl && <AudioButton key={question.key} url={question.audioUrl} />}
         </p>
-        {question.audioUrl && <audio ref={audio} src={question.audioUrl} preload="none" />}
       </div>
 
       {question.kind === 'multipleChoice' ? (
@@ -229,6 +225,61 @@ function DrillRun({ lesson, onRetry }: { lesson: DrillLesson; onRetry: () => voi
         </button>
       )}
     </div>
+  );
+}
+
+/**
+ * Play and pause the sentence audio. Remounted per question (via `key`), so
+ * its state can't carry over to the next one.
+ */
+function AudioButton({ url }: { url: string }) {
+  const audio = useRef<HTMLAudioElement | null>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = (): void => {
+    const player = audio.current;
+    if (!player) return;
+
+    if (!player.paused) {
+      player.pause();
+      return;
+    }
+
+    if (player.ended) player.currentTime = 0;
+    void player.play().catch(() => {
+      // Autoplay rules and missing files both land here, and the question
+      // works without the audio, so there's nothing to tell the visitor.
+    });
+  };
+
+  return (
+    <>
+      <button
+        type="button"
+        className={styles.audioButton}
+        onClick={toggle}
+        aria-label={playing ? 'Pause the Spanish audio' : 'Play the Spanish audio'}
+      >
+        <svg viewBox="0 0 12 12" className={styles.audioIcon} aria-hidden="true">
+          {playing ? (
+            <>
+              <rect x="2.5" y="2" width="2.5" height="8" rx="0.5" />
+              <rect x="7" y="2" width="2.5" height="8" rx="0.5" />
+            </>
+          ) : (
+            <path d="M3.5 2.2v7.6a.4.4 0 0 0 .62.34l5.7-3.8a.4.4 0 0 0 0-.68l-5.7-3.8a.4.4 0 0 0-.62.34Z" />
+          )}
+        </svg>
+      </button>
+      <audio
+        ref={audio}
+        src={url}
+        preload="none"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => setPlaying(false)}
+      />
+    </>
   );
 }
 

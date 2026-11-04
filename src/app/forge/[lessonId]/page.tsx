@@ -42,8 +42,12 @@ export default async function LessonPage({
     notFound();
   }
 
+  const footer = (
+    <LessonFooter lessonId={lesson.id} next={context.next} previous={context.previous} />
+  );
+
   return (
-    <article className="content">
+    <article className={`content ${styles.lesson}`}>
       <nav className={styles.breadcrumb}>
         <Link href="/forge">← Course</Link>
         <span className={styles.crumbSeparator}>/</span>
@@ -56,13 +60,17 @@ export default async function LessonPage({
 
       <h1 className={styles.title}>{lesson.title}</h1>
 
-      {lesson.type === 'reading' ? (
-        <Reading lesson={lesson} />
-      ) : (
-        <Drill lesson={lesson} />
-      )}
+      <div className={styles.body}>
+        {lesson.type === 'reading' ? (
+          <Reading lesson={lesson} />
+        ) : (
+          // A drill holds its footer back until you've finished, so the
+          // lesson controls don't sit among the question's own buttons.
+          <Drill lesson={lesson} footer={footer} />
+        )}
+      </div>
 
-      <LessonFooter lessonId={lesson.id} next={context.next} previous={context.previous} />
+      {lesson.type === 'reading' && footer}
     </article>
   );
 }

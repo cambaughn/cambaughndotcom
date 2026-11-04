@@ -50,6 +50,9 @@
 }
 
 .audioButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   width: 2rem;
   height: 2rem;
@@ -58,9 +61,13 @@
   border-radius: 50%;
   background: none;
   color: var(--accent);
-  font-size: 0.7rem;
-  line-height: 1;
   cursor: pointer;
+}
+
+.audioIcon {
+  width: 0.65rem;
+  height: 0.65rem;
+  fill: currentColor;
 }
 
 .audioButton:hover {
