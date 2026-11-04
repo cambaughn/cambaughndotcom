@@ -29,7 +29,8 @@ export default function Home() {
                   {new Date(date).toLocaleDateString('en-US', { 
                     year: 'numeric', 
                     month: 'long', 
-                    day: 'numeric' 
+                    day: 'numeric',
+                    timeZone: 'UTC'
                   })}
                 </time>
                 {description && <p>{description}</p>}

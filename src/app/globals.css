@@ -125,6 +125,30 @@ a:hover {
   margin: 1.5rem auto;
 }
 
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.post-content th,
+.post-content td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.post-content th {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
 .about {
   margin-bottom: 0;
 }

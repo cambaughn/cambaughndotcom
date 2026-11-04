@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
+import gfm from 'remark-gfm';
 import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'src/content/posts');
@@ -69,6 +70,7 @@ export async function getPostData(id: string): Promise<Post | null> {
   );
 
   const processedContent = await remark()
+    .use(gfm)
     .use(html)
     .process(contentWithFixedLinks);
   const contentHtml = processedContent.toString();
