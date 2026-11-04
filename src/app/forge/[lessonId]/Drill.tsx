@@ -1,6 +1,14 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+  type RefObject,
+} from 'react';
 
 import { markComplete } from '@/lib/forge/progress';
 import { buildDrillQuestions, isAnswerCorrect, type Question } from '@/lib/forge/questions';
@@ -88,8 +96,13 @@ function DrillRun({
   useEffect(() => {
     if (!answered) return;
 
+    // React flushes this effect while the keystroke that submitted the
+    // answer is still bubbling, so the same Enter would otherwise skip
+    // straight past the result. Only react to a later one.
+    const subscribedAt = performance.now();
+
     const onKeyDown = (event: KeyboardEvent): void => {
-      if (event.key !== 'Enter') return;
+      if (event.key !== 'Enter' || event.timeStamp <= subscribedAt) return;
       event.preventDefault();
       advance();
     };
@@ -157,7 +170,13 @@ function DrillRun({
         </p>
         <p className={styles.prompt}>
           {question.prompt}
-          {question.audioUrl && <AudioButton key={question.key} url={question.audioUrl} />}
+          {question.audioUrl && (
+            <AudioButton
+              key={question.key}
+              url={question.audioUrl}
+              returnFocusTo={question.kind === 'typing' ? input : undefined}
+            />
+          )}
         </p>
       </div>
 
@@ -251,12 +270,24 @@ function DrillRun({
  *
  * Remounted per question (via `key`), so its state can't carry over.
  */
-function AudioButton({ url }: { url: string }) {
+function AudioButton({
+  url,
+  returnFocusTo,
+}: {
+  url: string;
+  /** Where the caret belongs after a click, so you can type what you heard. */
+  returnFocusTo?: RefObject<HTMLInputElement | null>;
+}) {
   const audio = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
-  const toggle = (): void => {
+  const toggle = (event: MouseEvent<HTMLButtonElement>): void => {
     const player = audio.current;
+
+    // `detail` is 0 when the button was activated from the keyboard, where
+    // moving the caret elsewhere would fight the person's own navigation.
+    if (event.detail > 0) returnFocusTo?.current?.focus();
+
     if (!player) return;
 
     if (!player.paused) {
@@ -277,6 +308,9 @@ function AudioButton({ url }: { url: string }) {
       <button
         type="button"
         className={styles.audioButton}
+        // Stops the click taking focus off the answer box in the first place,
+        // so there's no flicker before it goes back.
+        onMouseDown={(event) => event.preventDefault()}
         onClick={toggle}
         aria-label={playing ? 'Stop the Spanish audio' : 'Play the Spanish audio'}
       >
