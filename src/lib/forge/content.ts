@@ -7,6 +7,7 @@
  */
 
 import { remark } from 'remark';
+import breaks from 'remark-breaks';
 import gfm from 'remark-gfm';
 import html from 'remark-html';
 
@@ -45,8 +46,12 @@ const lessons = lessonData as Record<string, RawLesson>;
 const sentences = sentenceData as Record<string, Sentence>;
 const tips = tipData as Record<string, { id: string; title: string; text: string }>;
 
+// `breaks` keeps single newlines as line breaks. This content was written
+// for a renderer that honoured them, so word lists like the one in "-al the
+// words" are a line each rather than a markdown paragraph, and would
+// otherwise run together into a sentence.
 const toHtml = async (markdown: string): Promise<string> => {
-  const processed = await remark().use(gfm).use(html).process(markdown);
+  const processed = await remark().use(gfm).use(breaks).use(html).process(markdown);
   return processed.toString();
 };
 
