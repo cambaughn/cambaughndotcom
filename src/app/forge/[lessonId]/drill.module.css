@@ -158,6 +158,33 @@
 
 /* Buttons */
 
+/* Sits directly under the options or the input, matching their width, so
+   moving on doesn't mean travelling to a corner of the page. */
+.advanceButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--text);
+  border-radius: 4px;
+  background: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.advanceButton:hover {
+  opacity: 0.9;
+}
+
+.shortcut {
+  font-size: 0.78rem;
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+
 .primaryButton,
 .secondaryButton {
   align-self: flex-start;

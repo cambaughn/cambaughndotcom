@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 
 import { markComplete } from '@/lib/forge/progress';
 import { buildDrillQuestions, isAnswerCorrect, type Question } from '@/lib/forge/questions';
@@ -65,6 +65,14 @@ function DrillRun({
   const queue = [...base, ...retries];
   const question = queue[index] ?? null;
   const finished = index >= queue.length;
+  const answered = verdict !== null;
+
+  const advance = useCallback((): void => {
+    setIndex((current) => current + 1);
+    setTyped('');
+    setChosen(null);
+    setVerdict(null);
+  }, []);
 
   useEffect(() => {
     if (finished) markComplete(lesson.id);
@@ -74,6 +82,21 @@ function DrillRun({
   useEffect(() => {
     if (question?.kind === 'typing') input.current?.focus();
   }, [question]);
+
+  // Enter moves on once an answer is in. It can't live on the input, which is
+  // disabled by then, and multiple choice has nothing focused at all.
+  useEffect(() => {
+    if (!answered) return;
+
+    const onKeyDown = (event: KeyboardEvent): void => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      advance();
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [answered, advance]);
 
   if (!question) {
     const percent = score.asked ? Math.round((score.right / score.asked) * 100) : 0;
@@ -91,7 +114,6 @@ function DrillRun({
     );
   }
 
-  const answered = verdict !== null;
   const tips = lesson.tips.filter((tip) => question.tips.includes(tip.id));
   const showTips = tipsOpenFor === question.key;
 
@@ -118,13 +140,6 @@ function DrillRun({
   const check = (): void => {
     if (answered || !typed.trim()) return;
     settle(isAnswerCorrect(typed, question.accepted));
-  };
-
-  const advance = (): void => {
-    setIndex((current) => current + 1);
-    setTyped('');
-    setChosen(null);
-    setVerdict(null);
   };
 
   return (
@@ -170,9 +185,7 @@ function DrillRun({
             value={typed}
             onChange={(event) => setTyped(event.target.value)}
             onKeyDown={(event) => {
-              if (event.key !== 'Enter') return;
-              if (answered) advance();
-              else check();
+              if (event.key === 'Enter') check();
             }}
             placeholder={question.direction === 'es-to-en' ? 'In English…' : 'En español…'}
             autoComplete="off"
@@ -220,8 +233,11 @@ function DrillRun({
       )}
 
       {answered && (
-        <button type="button" className={styles.primaryButton} onClick={advance}>
+        <button type="button" className={styles.advanceButton} onClick={advance}>
           {index + 1 >= queue.length ? 'Finish' : 'Next'}
+          <span className={styles.shortcut} aria-hidden="true">
+            Enter ↵
+          </span>
         </button>
       )}
     </div>
@@ -229,8 +245,11 @@ function DrillRun({
 }
 
 /**
- * Play and pause the sentence audio. Remounted per question (via `key`), so
- * its state can't carry over to the next one.
+ * Play and stop the sentence audio. The button shows a pause icon, but it
+ * stops: these clips are a couple of seconds long, so resuming halfway
+ * through one is no use. Play always starts the sentence again.
+ *
+ * Remounted per question (via `key`), so its state can't carry over.
  */
 function AudioButton({ url }: { url: string }) {
   const audio = useRef<HTMLAudioElement | null>(null);
@@ -242,10 +261,11 @@ function AudioButton({ url }: { url: string }) {
 
     if (!player.paused) {
       player.pause();
+      player.currentTime = 0;
       return;
     }
 
-    if (player.ended) player.currentTime = 0;
+    player.currentTime = 0;
     void player.play().catch(() => {
       // Autoplay rules and missing files both land here, and the question
       // works without the audio, so there's nothing to tell the visitor.
@@ -258,7 +278,7 @@ function AudioButton({ url }: { url: string }) {
         type="button"
         className={styles.audioButton}
         onClick={toggle}
-        aria-label={playing ? 'Pause the Spanish audio' : 'Play the Spanish audio'}
+        aria-label={playing ? 'Stop the Spanish audio' : 'Play the Spanish audio'}
       >
         <svg viewBox="0 0 12 12" className={styles.audioIcon} aria-hidden="true">
           {playing ? (
