@@ -164,7 +164,7 @@ function LessonRow({
         <span className={styles.lessonTitle}>{lesson.title}</span>
         {lesson.sentenceCount != null && (
           <span className={styles.lessonMeta}>
-            {lesson.sentenceCount * 2} questions
+            {lesson.sentenceCount} questions
           </span>
         )}
       </Link>

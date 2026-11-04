@@ -26,7 +26,7 @@ export async function generateMetadata({
     description:
       lesson.type === 'reading'
         ? `A Forge Spanish reading lesson: ${lesson.title}.`
-        : `Practice ${lesson.title} with ${lesson.sentences.length * 2} questions.`,
+        : `Practice ${lesson.title} with ${lesson.sentences.length} questions.`,
   };
 }
 

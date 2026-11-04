@@ -1,11 +1,11 @@
 /**
  * Turns a drill's sentences into a quiz.
  *
- * Each sentence becomes two questions, drawn at random from four shapes:
- * multiple choice and typing, in each direction. The whole set is then
- * shuffled, so repeating a drill gives you a different mix. This is how the
- * original app worked, and it's why a nine-sentence drill is eighteen
- * questions long.
+ * One question per sentence, its shape drawn at random from four: multiple
+ * choice and typing, in each direction. The set is then shuffled, so
+ * repeating a drill gives you a different mix of shapes over the same
+ * sentences. The original app asked two questions per sentence, which made
+ * drills drag.
  */
 
 import type { Sentence } from './types';
@@ -68,7 +68,7 @@ const SHAPES: { kind: QuestionKind; direction: Direction }[] = [
   { kind: 'typing', direction: 'en-to-es' },
 ];
 
-const QUESTIONS_PER_SENTENCE = 2;
+const QUESTIONS_PER_SENTENCE = 1;
 
 export function buildDrillQuestions(sentences: Sentence[]): Question[] {
   const questions: Question[] = [];
