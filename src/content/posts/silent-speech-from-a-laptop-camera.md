@@ -1,6 +1,6 @@
 ---
 title: Silent speech from a laptop camera
-description: I fine-tuned a lip-reading model on 113 sentences I mouthed silently at my MacBook. It works, as long as you mouth big.
+description: Seven minutes of me mouthing sentences in silence taught a lip-reading model to read me. It also showed exactly where a camera stops being enough.
 date: 2026-11-04
 ---
 I wanted to know whether the webcam on my MacBook could read sentences I mouth without making a
