@@ -1,0 +1,335 @@
+.loading {
+  color: var(--accent);
+}
+
+.drill {
+  display: flex;
+  flex-direction: column;
+}
+
+.track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--link);
+  transition: width 0.25s ease;
+}
+
+.counter {
+  margin: 0.6rem 0 2.5rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.promptBlock {
+  margin-bottom: 2rem;
+}
+
+.direction {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.audioButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.audioIcon {
+  width: 0.65rem;
+  height: 0.65rem;
+  fill: currentColor;
+}
+
+.audioButton:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+/* Multiple choice */
+
+.options {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.option,
+.optionCorrect,
+.optionWrong {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: none;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--link);
+}
+
+.option:disabled {
+  color: var(--accent);
+  cursor: default;
+}
+
+/* The number that picks this option from the keyboard. */
+.optionKey {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.optionCorrect {
+  border-color: #1a7f4b;
+  background: #f0f9f4;
+  color: #1a7f4b;
+  cursor: default;
+}
+
+.optionWrong {
+  border-color: #c0392b;
+  background: #fdf3f2;
+  color: #c0392b;
+  cursor: default;
+}
+
+/* Typing */
+
+.typing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  flex: 1;
+  min-width: 12rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--link);
+}
+
+.input:disabled {
+  background: var(--light-gray);
+  color: var(--accent);
+}
+
+/* Buttons */
+
+/* Sits directly under the options or the input, matching their width, so
+   moving on doesn't mean travelling to a corner of the page. */
+.advanceButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--text);
+  border-radius: 4px;
+  background: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.advanceButton:hover {
+  opacity: 0.9;
+}
+
+.shortcut {
+  font-size: 0.78rem;
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.primaryButton,
+.secondaryButton {
+  align-self: flex-start;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--text);
+  border-radius: 4px;
+  background: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  opacity: 0.9;
+}
+
+.primaryButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.secondaryButton {
+  background: none;
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.secondaryButton:hover {
+  border-color: var(--link);
+  color: var(--link);
+  opacity: 1;
+}
+
+/* Feedback */
+
+.feedbackGood,
+.feedbackBad {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid;
+  border-radius: 0 3px 3px 0;
+}
+
+.feedbackGood {
+  border-color: #1a7f4b;
+  background: #f0f9f4;
+}
+
+.feedbackBad {
+  border-color: #c0392b;
+  background: #fdf3f2;
+}
+
+.feedbackLine {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.feedbackNote {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+/* Tips */
+
+.tips {
+  margin-bottom: 1.5rem;
+}
+
+.tipToggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tipToggle:hover {
+  color: var(--link);
+}
+
+.tip {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--light-gray);
+}
+
+.tipTitle {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tipText {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.tipText p:first-child {
+  margin-top: 0;
+}
+
+.tipText p:last-child {
+  margin-bottom: 0;
+}
+
+/* Completion */
+
+.done {
+  padding: 2rem 0;
+}
+
+.doneTitle {
+  margin: 0 0 0.5rem;
+}
+
+.doneScore {
+  margin: 0 0 1.5rem;
+  color: var(--accent);
+}

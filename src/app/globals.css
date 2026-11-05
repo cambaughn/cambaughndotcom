@@ -4,6 +4,7 @@
   --accent: #666;
   --link: #0066CC;
   --border: #E5E5E5;
+  --border-faint: #EFEFEC;
   --light-gray: #F5F5F5;
 }
 
@@ -32,8 +33,12 @@ main {
   width: 100%;
 }
 
-/* Shared content container used by pages to unify spacing */
+/* Shared content container used by pages to unify spacing.
+   `width: 100%` matters: as a flex item with auto side margins it would
+   otherwise size to its content, so a page would change width whenever
+   something like a hint opened. */
 .content {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -67,6 +72,14 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* A `---` in markdown. Barely there: it marks a pause between sections
+   without cutting the page in half. */
+.post-content hr {
+  border: 0;
+  border-top: 1px solid var(--border-faint);
+  margin: 2.5rem 0;
 }
 
 /* Post styles */

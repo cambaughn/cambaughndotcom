@@ -1,0 +1,718 @@
+{
+  "id": "en-es-fundamentals",
+  "title": "Fundamentals",
+  "description": "Welcome to the Spanish grammar course. In this beginner section, we’ll jumpstart our Spanish vocabulary using words we already know, and we’ll learn about basic verbs and how to use adjectives to spice up our sentences. Buckle up, we’ve got a lot of ground to cover!",
+  "units": [
+    {
+      "id": "en-es-jump-start",
+      "title": "Jump Start",
+      "description": "We start our Spanish journey by learning how to transform words we already know in English into Spanish.",
+      "sections": [
+        {
+          "id": "en-es-introduction",
+          "title": "Introduction",
+          "lessons": [
+            "sounds-of-spanish",
+            "you-already-know-spanish"
+          ]
+        },
+        {
+          "id": "en-es-magic-translations",
+          "title": "Magic translations",
+          "lessons": [
+            "al-the-words",
+            "its-not-impossible",
+            "-ic-what-you-mean",
+            "excellent-elephants",
+            "can-you-use-that-in-a-sentence",
+            "yes-and-no"
+          ]
+        },
+        {
+          "id": "en-es-double-letters",
+          "title": "Double letters",
+          "lessons": [
+            "double-or-nothing",
+            "no-memorizing-required",
+            "words-for-free"
+          ]
+        },
+        {
+          "id": "en-es-a-few-more",
+          "title": "A few more",
+          "lessons": [
+            "famous-novelists",
+            "curious-artists"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-state-of-being",
+      "title": "State-of-Being",
+      "description": "This pack tackles basic sentence structure in Spanish, focusing first on state-of-being.",
+      "sections": [
+        {
+          "id": "en-es-pronouns",
+          "title": "Pronouns",
+          "lessons": [
+            "you-and-me",
+            "all-of-us"
+          ]
+        },
+        {
+          "id": "en-es-to-be",
+          "title": "To be",
+          "lessons": [
+            "to-be",
+            "i-am-you-are",
+            "we-re-students"
+          ]
+        },
+        {
+          "id": "en-es-grammatical-gender",
+          "title": "Grammatical gender",
+          "lessons": [
+            "masculine-or-feminine",
+            "sp-people-and-animals",
+            "sp-creatures-big-and-small"
+          ]
+        },
+        {
+          "id": "en-es-gender-of-inanimate-objects",
+          "title": "Gender of inanimate objects",
+          "lessons": [
+            "sp-everything-else",
+            "sp-places-and-things"
+          ]
+        },
+        {
+          "id": "en-es-some-general-guidelines",
+          "title": "Some general guidelines",
+          "lessons": [
+            "sp-more-like-guidelines"
+          ]
+        },
+        {
+          "id": "en-es-plurals",
+          "title": "Plurals",
+          "lessons": [
+            "sp-plurals-and-then-some",
+            "sp-definitely-indefinite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-greetings",
+      "title": "Greetings",
+      "description": "",
+      "sections": [
+        {
+          "id": "en-es-self-introduction",
+          "title": "Self-introduction",
+          "lessons": [
+            "es-allow-me-to-introduce-myself",
+            "hey-hi-hello",
+            "es-whats-your-name"
+          ]
+        },
+        {
+          "id": "en-es-salutations",
+          "title": "Salutations",
+          "lessons": [
+            "es-hello-goodbye",
+            "es-until-we-meet-again",
+            "see-ya-later",
+            "thank-you-and-good-night"
+          ]
+        },
+        {
+          "id": "en-es-where-youre-from",
+          "title": "Where you're from",
+          "lessons": [
+            "es-location-location-location",
+            "allow-me-to-introduce-myself",
+            "es-old-stomping-grounds",
+            "es-here-and-there"
+          ]
+        },
+        {
+          "id": "en-es-occupation",
+          "title": "Occupation",
+          "lessons": [
+            "es-another-day-another-peso",
+            "es-occupational-hazard",
+            "es-out-of-work"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-present-tense",
+      "title": "Present Tense",
+      "description": "Let's continue to build on what we know by using verbs to craft more complex sentences.",
+      "sections": [
+        {
+          "id": "en-es-overview",
+          "title": "Overview",
+          "lessons": [
+            "sp-lights-camera-action"
+          ]
+        },
+        {
+          "id": "en-es-ar-verbs",
+          "title": "-ar verbs",
+          "lessons": [
+            "sp-ar-you-ready-for-this",
+            "sp-i-speak-spanish",
+            "sp-walk-and-talk",
+            "sp-practice-makes-perfect"
+          ]
+        },
+        {
+          "id": "en-es-er-verbs",
+          "title": "-er verbs",
+          "lessons": [
+            "sp-er-where-were-we",
+            "sp-eat-and-drink",
+            "sp-gotta-run"
+          ]
+        },
+        {
+          "id": "en-es-ir-verbs",
+          "title": "-ir verbs",
+          "lessons": [
+            "sp-ir-and-there",
+            "sp-an-awfully-big-adventure",
+            "sp-so-it-shall-be-written"
+          ]
+        },
+        {
+          "id": "en-es-tener-to-have",
+          "title": "Tener - to have",
+          "lessons": [
+            "es-it-takes-two-to-tengo",
+            "es-to-have-and-have-not",
+            "es-you-got-a-problem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-adjectives",
+      "title": "Adjectives",
+      "description": "Now that we know how to take action, let's use adjectives to add some color to our world!",
+      "sections": [
+        {
+          "id": "en-es-adjectives-ending-in-o",
+          "title": "Adjectives ending in -o",
+          "lessons": [
+            "sp-red-fish-blue-fish",
+            "undefined-imitation-game",
+            "undefined-good-bad-ugly"
+          ]
+        },
+        {
+          "id": "en-es-other-endings",
+          "title": "Other endings",
+          "lessons": [
+            "es-other-endings",
+            "es-expanding-our-horizons",
+            "es-not-the-end"
+          ]
+        },
+        {
+          "id": "en-es-nationality",
+          "title": "Nationality",
+          "lessons": [
+            "es-where-and-how-much",
+            "es-proud-to-be",
+            "es-around-the-world"
+          ]
+        },
+        {
+          "id": "en-es-mucho-y-bueno",
+          "title": "Mucho y bueno",
+          "lessons": [
+            "es-mucho-y-bueno",
+            "es-a-little-a-lot",
+            "es-good-better-best"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-numbers",
+      "title": "Numbers",
+      "description": "",
+      "sections": [
+        {
+          "id": "en-es-1-10",
+          "title": "1-10",
+          "lessons": [
+            "es-lets-count-to-10",
+            "sp-three-two-one"
+          ]
+        },
+        {
+          "id": "en-es-teens-11-19",
+          "title": "Teens: 11-19",
+          "lessons": [
+            "es-teen-spirit",
+            "sp-teen-spirit",
+            "es-double-figures"
+          ]
+        },
+        {
+          "id": "en-es-0-100",
+          "title": "Up to 100",
+          "lessons": [
+            "es-counting-by-tens",
+            "es-to-the-moon-or-100",
+            "es-in-orbit",
+            "es-roaring-twenties",
+            "es-twenty-something",
+            "es-filling-in-the-blanks",
+            "es-all-the-rest"
+          ]
+        },
+        {
+          "id": "en-es-100-1000",
+          "title": "To 1000",
+          "lessons": [
+            "es-a-thousand-miles",
+            "es-hundreds-of-them",
+            "es-a-thousand-years",
+            "es-putting-it-all-together",
+            "es-so-many-numbers"
+          ]
+        },
+        {
+          "id": "en-es-grammatical-gender-1",
+          "title": "Numbers with gender",
+          "lessons": [
+            "es-changing-times",
+            "es-shifting-sands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-irregular-verbs-estar",
+      "title": "Irregular Verbs",
+      "description": "In this pack, we'll go over some important irregular verbs and learn how to talk about location, current condition, and actions in progress with \"estar.\"",
+      "sections": [
+        {
+          "id": "en-es-the-first-few",
+          "title": "The first few",
+          "lessons": [
+            "es-irregular-but-useful",
+            "es-i-do-want-that",
+            "es-make-do-with-what-we-have"
+          ]
+        },
+        {
+          "id": "en-es-the-rest",
+          "title": "The rest",
+          "lessons": [
+            "es-come-and-go",
+            "es-go-go-go",
+            "es-come-back"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-estar",
+      "title": "Estar",
+      "description": "",
+      "sections": [
+        {
+          "id": "en-es-estar",
+          "title": "Estar",
+          "lessons": [
+            "es-you-re-estar-kid",
+            "es-here-and-happening",
+            "es-here-i-am"
+          ]
+        },
+        {
+          "id": "en-es-progressive-tense",
+          "title": "Progressive tense",
+          "lessons": [
+            "es-practice-makes-progress",
+            "es-what-are-you-doing",
+            "es-doing-all-the-things",
+            "es-work-in-progress"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-past-tense",
+      "title": "Past Tense",
+      "description": "This is about where we've been. Let's talk about the past.",
+      "sections": [
+        {
+          "id": "en-es-the-preterite-ar",
+          "title": "The preterite -ar",
+          "lessons": [
+            "es-its-in-the-past",
+            "es-what-did-you-do"
+          ]
+        },
+        {
+          "id": "en-es-the-preterite-er-ir",
+          "title": "The preterite -er & -ir",
+          "lessons": [
+            "es-those-other-endings-1",
+            "es-all-the-same"
+          ]
+        },
+        {
+          "id": "en-es-irregulars-ser-ir",
+          "title": "Irregulars: ser & ir",
+          "lessons": [
+            "es-this-is-highly-irregular",
+            "es-was-and-went"
+          ]
+        },
+        {
+          "id": "en-es-irregulars-decir-hacer",
+          "title": "Irregulars: decir & hacer",
+          "lessons": [
+            "es-increasing-irregularity",
+            "es-monkey-see-monkey-do"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-reflexive-verbs",
+      "title": "Reflexive Verbs",
+      "description": "Reflexives",
+      "sections": [
+        {
+          "id": "en-es-whats-a-reflexive",
+          "title": "What's a reflexive?",
+          "lessons": [
+            "es-cat-like-reflexives-1",
+            "es-i-call-myself-ishmael",
+            "es-getting-ready"
+          ]
+        },
+        {
+          "id": "en-es-two-ways-to-say-it",
+          "title": "Two ways to say it",
+          "lessons": [
+            "es-more-than-one",
+            "es-two-for-one-1"
+          ]
+        },
+        {
+          "id": "en-es-change-of-meaning",
+          "title": "Change of meaning",
+          "lessons": [
+            "es-non-reflexive-reflexives",
+            "es-i-go-i-leave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-adverbs",
+      "title": "Adverbs",
+      "description": "Let's add some spice to our actions with adverbs!",
+      "sections": [
+        {
+          "id": "en-es-two-approaches",
+          "title": "Two approaches",
+          "lessons": [
+            "es-slowly-i-turned",
+            "es-completely-doable"
+          ]
+        },
+        {
+          "id": "en-es-irregular-adverbs",
+          "title": "Irregular adverbs",
+          "lessons": [
+            "es-up-down-and-around",
+            "es-placement-test"
+          ]
+        },
+        {
+          "id": "en-es-telling-time",
+          "title": "Telling time",
+          "lessons": [
+            "es-the-time-is-now",
+            "es-about-time"
+          ]
+        },
+        {
+          "id": "en-es-quantity-degree",
+          "title": "Quantity & degree",
+          "lessons": [
+            "es-a-little-more-to-go",
+            "es-that-doggie-in-the-window"
+          ]
+        },
+        {
+          "id": "en-es-adverbial-phrases",
+          "title": "Adverbial phrases",
+          "lessons": [
+            "es-to-cone-a-phrase",
+            "es-is-this-really-the-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-future-tense",
+      "title": "Future Tense",
+      "description": "Wait a minute, Doc, are you trying to tell me that we can talk about things that are going to happen in the future?",
+      "sections": [
+        {
+          "id": "en-es-informal-future",
+          "title": "Informal future",
+          "lessons": [
+            "es-back-to-the-future",
+            "es-what-will-you-do",
+            "es-who-will-you-be"
+          ]
+        },
+        {
+          "id": "en-es-simple-future",
+          "title": "Simple future",
+          "lessons": [
+            "es-the-real-future-tense",
+            "es-i-will",
+            "es-what-does-the-future-hold"
+          ]
+        },
+        {
+          "id": "en-es-informal-vs-simple",
+          "title": "Informal vs. simple",
+          "lessons": [
+            "es-informal-vs-simple",
+            "es-showdown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-imperfect-past-tense",
+      "title": "Imperfect Past Tense",
+      "description": "This pack covers the imperfect past tense, so you can learn how to talk about things you used to do.",
+      "sections": [
+        {
+          "id": "en-es-what-is-it",
+          "title": "What is it?",
+          "lessons": [
+            "es-imperfection"
+          ]
+        },
+        {
+          "id": "en-es-ar-verbs-1",
+          "title": "-ar verbs",
+          "lessons": [
+            "es-we-used-to-talk",
+            "es-a-long-time-ago"
+          ]
+        },
+        {
+          "id": "en-es-er-and-ir-verbs",
+          "title": "-er and -ir verbs",
+          "lessons": [
+            "es-a-little-different",
+            "es-two-for-one"
+          ]
+        },
+        {
+          "id": "en-es-a-few-irregulars",
+          "title": "A few irregulars",
+          "lessons": [
+            "es-a-little-irregular",
+            "es-some-irregular-practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-conditional-tense",
+      "title": "Conditional Tense",
+      "description": "Would you like to learn about the conditional tense? You're in luck, this pack is all about it!",
+      "sections": [
+        {
+          "id": "en-es-all-about-it",
+          "title": "All about it",
+          "lessons": [
+            "es-on-one-condition",
+            "es-i-would-but"
+          ]
+        },
+        {
+          "id": "en-es-irregulars",
+          "title": "Irregulars",
+          "lessons": [
+            "es-it-would-be-irregular",
+            "es-i-would-be-able-to",
+            "es-there-would-be-more-1",
+            "es-irregular-conditions",
+            "es-last-but-not-least",
+            "es-i-do-say"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-past-participle-perfect-tenses",
+      "title": "Past Participle",
+      "description": "We cover a lot of ground in this pack, introducing you to the past participle and how it can be used in the present and past perfect tenses.",
+      "sections": [
+        {
+          "id": "en-es-as-an-adjective",
+          "title": "As an adjective",
+          "lessons": [
+            "es-i-dont-know-the-meaning-of-the-word",
+            "es-we-are-closed"
+          ]
+        },
+        {
+          "id": "en-es-irregulars-1",
+          "title": "Irregulars",
+          "lessons": [
+            "es-irregular-as-always-1",
+            "es-we-are-open"
+          ]
+        },
+        {
+          "id": "en-es-passive-voice",
+          "title": "Passive voice",
+          "lessons": [
+            "es-passive-voice",
+            "es-it-was-done"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-perfect-tenses",
+      "title": "Perfect Tenses",
+      "description": "",
+      "sections": [
+        {
+          "id": "en-es-present-perfect",
+          "title": "Present perfect",
+          "lessons": [
+            "es-perfectly-balanced",
+            "es-what-ive-done",
+            "es-have-you"
+          ]
+        },
+        {
+          "id": "en-es-past-perfect",
+          "title": "Past perfect",
+          "lessons": [
+            "es-as-all-things-should-be",
+            "es-water-under-the-bridge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-subjunctive-mood",
+      "title": "Subjunctive Mood",
+      "description": "I hope you're in a good mood, because we're about to cover the subjunctive. Prepare for a wild ride filled with desire, doubt, action, and strongly worded opinions.",
+      "sections": [
+        {
+          "id": "en-es-when-how-to-use",
+          "title": "When + how to use",
+          "lessons": [
+            "es-im-not-in-the-mood",
+            "es-one-rule-to-rule-them-all"
+          ]
+        },
+        {
+          "id": "en-es-desires-wishes",
+          "title": "Desires + wishes",
+          "lessons": [
+            "es-hopes-and-dreams-1",
+            "es-wish-upon-a-star",
+            "es-anything-your-heart-desires"
+          ]
+        },
+        {
+          "id": "en-es-six-irregular-verbs",
+          "title": "Six irregular verbs",
+          "lessons": [
+            "es-simply-irregular",
+            "es-on-the-run",
+            "es-wanted-dead-or-alive"
+          ]
+        },
+        {
+          "id": "en-es-doubts-uncertainty",
+          "title": "Doubts + uncertainty",
+          "lessons": [
+            "es-i-seriously-doubt-that",
+            "es-a-seed-of-doubt-1",
+            "es-i-dont-believe-it"
+          ]
+        },
+        {
+          "id": "en-es-incomplete-actions",
+          "title": "Incomplete actions",
+          "lessons": [
+            "es-i-feel-incomplete",
+            "es-not-until-i-have-my-coffee",
+            "es-unless"
+          ]
+        },
+        {
+          "id": "en-es-impersonal-opinions",
+          "title": "Impersonal opinions",
+          "lessons": [
+            "es-judgment-call",
+            "es-nothing-personal",
+            "es-generic-opinions-inside"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-es-commands",
+      "title": "Commands",
+      "description": "In this pack, we'll talk about how to give commands. Get your bossy pants on, and let's go!",
+      "sections": [
+        {
+          "id": "en-es-positive-conjugation",
+          "title": "Positive conjugation",
+          "lessons": [
+            "es-its-absolutely-imperative",
+            "es-thats-an-order",
+            "es-do-me-a-favor"
+          ]
+        },
+        {
+          "id": "en-es-negative-conjugation",
+          "title": "Negative conjugation",
+          "lessons": [
+            "es-thats-a-negative",
+            "es-negatory",
+            "es-gonna-be-a-no-from-me"
+          ]
+        },
+        {
+          "id": "en-es-surprise-irregulars",
+          "title": "Surprise! Irregulars",
+          "lessons": [
+            "es-irregular-orders",
+            "es-dont-do-that",
+            "es-be-better"
+          ]
+        }
+      ]
+    }
+  ]
+}

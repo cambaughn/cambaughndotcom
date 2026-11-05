@@ -1,0 +1,7 @@
+.intro {
+  margin-bottom: 3rem;
+}
+
+.intro p {
+  color: var(--accent);
+}

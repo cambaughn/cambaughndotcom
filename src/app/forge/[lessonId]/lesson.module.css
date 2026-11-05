@@ -1,0 +1,82 @@
+/* The page fills the viewport so the footer sits at the bottom on a short
+   lesson instead of crowding the content. */
+.lesson {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.crumbSeparator {
+  color: var(--border);
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.completeToggle,
+.completeToggleDone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.completeToggle:hover,
+.completeToggleDone:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.completeToggleDone {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.lessonNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.navLink {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
