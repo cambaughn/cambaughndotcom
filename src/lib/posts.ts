@@ -73,7 +73,15 @@ export async function getPostData(id: string): Promise<Post | null> {
     .use(gfm)
     .use(html)
     .process(contentWithFixedLinks);
-  const contentHtml = processedContent.toString();
+  // Markdown has no video syntax, so an image whose file is a video
+  // (`![alt](/attachments/clip.mp4)`) becomes a muted, looping player.
+  const contentHtml = processedContent.toString().replace(
+    /<img src="([^"]+\.(?:mp4|webm|mov))"(?: alt="([^"]*)")?\s*\/?>/g,
+    (match, src, alt) =>
+      `<video src="${src}" autoplay loop muted playsinline controls preload="metadata"${
+        alt ? ` aria-label="${alt}"` : ''
+      }></video>`
+  );
 
   return {
     id,

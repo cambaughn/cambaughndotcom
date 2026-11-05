@@ -3,6 +3,8 @@ title: Silent speech from a laptop camera
 description: People are building all sorts of sensors to read subvocal speech. I wanted to see what was possible with just my laptop camera.
 date: 2026-11-04
 ---
+![Mindreader's Decode tab: I hold Space, mouth a sentence at the camera without a sound, and the text appears](/attachments/mindreader-demo.mp4)
+
 I wanted to know whether the webcam on my MacBook could read sentences I mouth without making a
 sound. [subvox](https://github.com/joeblau/subvox) tried the same idea with AirPods head motion. I
 tried it with the camera, with the same end goal: hold a key, mouth a sentence, and the text shows
