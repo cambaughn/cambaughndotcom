@@ -82,6 +82,28 @@ function DrillRun({
     setVerdict(null);
   }, []);
 
+  const settle = useCallback((asked: Question, correct: boolean): void => {
+    setVerdict(correct ? 'correct' : 'incorrect');
+    setScore((current) => ({
+      right: current.right + (correct ? 1 : 0),
+      asked: current.asked + 1,
+    }));
+    if (!correct) {
+      setRetries((current) => [
+        ...current,
+        { ...asked, key: `${asked.key}-again-${current.length}` },
+      ]);
+    }
+  }, []);
+
+  const choose = useCallback(
+    (asked: Question, option: string): void => {
+      setChosen(option);
+      settle(asked, isAnswerCorrect(option, asked.accepted));
+    },
+    [settle]
+  );
+
   useEffect(() => {
     if (finished) markComplete(lesson.id);
   }, [finished, lesson.id]);
@@ -93,23 +115,40 @@ function DrillRun({
 
   // Enter moves on once an answer is in. It can't live on the input, which is
   // disabled by then, and multiple choice has nothing focused at all.
+  // Enter moves on once an answer is in; 1, 2 and 3 pick a multiple-choice
+  // option. Neither can live on an element: the typed input is disabled once
+  // answered, and multiple choice has nothing focused at all.
   useEffect(() => {
-    if (!answered) return;
+    if (!question) return;
 
     // React flushes this effect while the keystroke that submitted the
-    // answer is still bubbling, so the same Enter would otherwise skip
+    // answer is still bubbling, so that same Enter would otherwise skip
     // straight past the result. Only react to a later one.
     const subscribedAt = performance.now();
 
     const onKeyDown = (event: KeyboardEvent): void => {
-      if (event.key !== 'Enter' || event.timeStamp <= subscribedAt) return;
+      if (event.timeStamp <= subscribedAt || event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+
+      if (event.key === 'Enter') {
+        if (!answered) return;
+        event.preventDefault();
+        advance();
+        return;
+      }
+
+      if (answered || question.kind !== 'multipleChoice') return;
+
+      const picked = question.options?.[Number(event.key) - 1];
+      if (!picked) return;
       event.preventDefault();
-      advance();
+      choose(question, picked);
     };
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [answered, advance]);
+  }, [answered, advance, choose, question]);
 
   if (!question) {
     const percent = score.asked ? Math.round((score.right / score.asked) * 100) : 0;
@@ -130,29 +169,9 @@ function DrillRun({
   const tips = lesson.tips.filter((tip) => question.tips.includes(tip.id));
   const showTips = tipsOpenFor === question.key;
 
-  const settle = (correct: boolean): void => {
-    setVerdict(correct ? 'correct' : 'incorrect');
-    setScore((current) => ({
-      right: current.right + (correct ? 1 : 0),
-      asked: current.asked + 1,
-    }));
-    if (!correct) {
-      setRetries((current) => [
-        ...current,
-        { ...question, key: `${question.key}-again-${current.length}` },
-      ]);
-    }
-  };
-
-  const choose = (option: string): void => {
-    if (answered) return;
-    setChosen(option);
-    settle(isAnswerCorrect(option, question.accepted));
-  };
-
   const check = (): void => {
     if (answered || !typed.trim()) return;
-    settle(isAnswerCorrect(typed, question.accepted));
+    settle(question, isAnswerCorrect(typed, question.accepted));
   };
 
   return (
@@ -182,14 +201,17 @@ function DrillRun({
 
       {question.kind === 'multipleChoice' ? (
         <ul className={styles.options}>
-          {question.options?.map((option) => (
+          {question.options?.map((option, index) => (
             <li key={option}>
               <button
                 type="button"
                 className={optionClass(option, question, chosen, answered)}
-                onClick={() => choose(option)}
+                onClick={() => choose(question, option)}
                 disabled={answered}
               >
+                <span className={styles.optionKey} aria-hidden="true">
+                  {index + 1}
+                </span>
                 {option}
               </button>
             </li>

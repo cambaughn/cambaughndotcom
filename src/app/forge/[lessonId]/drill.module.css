@@ -89,6 +89,9 @@
 .option,
 .optionCorrect,
 .optionWrong {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   width: 100%;
   padding: 0.85rem 1rem;
   border: 1px solid var(--border);
@@ -109,6 +112,21 @@
 .option:disabled {
   color: var(--accent);
   cursor: default;
+}
+
+/* The number that picks this option from the keyboard. */
+.optionKey {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
 }
 
 .optionCorrect {
